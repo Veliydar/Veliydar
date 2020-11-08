@@ -1,20 +1,52 @@
-public class Task_1
-    //Задание 1
-    {
-       public static void main(String[] args)
-        {
-            int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-            for (int i = 0; i < arr.length; i++)
-                if (arr[i] > 0)
-                {
-                    arr[i] = 0;
-                }
-                else arr[i] = 1;
+package com.company;
 
-            for (int i = 0; i < arr.length; i++)
+import java.util.Random;
+import java.util.Scanner;
+
+public class Task_1
+{
+    public static void main(String[] args)
+    {
+        Random random = new Random();
+        do
+        {
+            int RandomNumber = random.nextInt(9);
+            for (int remainingAttempts = 2; remainingAttempts >= 0; remainingAttempts--)
             {
-                System.out.print(arr[i] + " ");
+                int playerInputNumber;
+                do
+                {
+                    System.out.println("Необходимо отгадать загадное число, введите число от 0 до 9.");
+                    playerInputNumber = playerInputNumber();
+                }
+                while (!(0 <= playerInputNumber && playerInputNumber <= 9));
+
+                if (playerInputNumber == RandomNumber)
+                {
+                    System.out.println("Загаданое число угадано");
+                    break;
+                }
+
+                System.out.println("Загаданное число не угадано. Количество оставшихся попыток: " + remainingAttempts);
             }
+
+            System.out.println("Нажмите 1 чтобы начать заного || Нажмите 0 чтобы завешить игру)");
         }
+
+        while (playerInputNumber() != 0);
     }
 
+    static int playerInputNumber()
+    {
+        Scanner scanner = new Scanner(System.in);
+        do
+        {
+            if (scanner.hasNextInt())
+            {
+                return scanner.nextInt();
+            }
+        }
+        while (true);
+    }
+
+}
