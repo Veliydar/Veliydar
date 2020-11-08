@@ -3,16 +3,15 @@ package com.company;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Task_1
+public class Task_3_1
 {
     public static void main(String[] args)
     {
         Random random = new Random();
         do
-        {
-            int RandomNumber = random.nextInt(9);
-            for (int remainingAttempts = 2; remainingAttempts >= 0; remainingAttempts--)
             {
+            int RandomNumber = random.nextInt(9);
+            for (int remainingAttempts = 2; remainingAttempts >= 0; remainingAttempts--) {
                 int playerInputNumber;
                 do
                 {
@@ -21,8 +20,7 @@ public class Task_1
                 }
                 while (!(0 <= playerInputNumber && playerInputNumber <= 9));
 
-                if (playerInputNumber == RandomNumber)
-                {
+                if (playerInputNumber == RandomNumber) {
                     System.out.println("Загаданое число угадано");
                     break;
                 }
@@ -40,7 +38,7 @@ public class Task_1
     {
         Scanner scanner = new Scanner(System.in);
         do
-        {
+            {
             if (scanner.hasNextInt())
             {
                 return scanner.nextInt();
